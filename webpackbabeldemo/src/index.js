@@ -16,8 +16,6 @@ img.src = image;
 img.classList.add('logo')
 
 const input  = document.createElement("input");
-input.width = "80%";
-input.height = "600"
 input.setAttribute('class',"input_style")
 input.setAttribute('id',"appenddiv")
 
