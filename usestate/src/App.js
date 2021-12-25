@@ -12,14 +12,18 @@ function App() {
       return count + value;
     })
   }
+  const multiply = () => {
+    setCount(count*2)
+  }
 
   return (
 
     <div className="App" >
       <h3>counter: {count}</h3>
-      {count<10 && (<div>
+      {(<div>
         <button onClick={() => changecount(1)}>Add 1</button>
       <button onClick={() => changecount(-1)}>Sub 1</button>
+      <button onClick={() => multiply()}>Double</button>
       </div>)}
 
       {/* <button onClick={() => changecount(1)}>Add 1</button>
