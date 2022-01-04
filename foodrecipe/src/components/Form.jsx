@@ -21,13 +21,6 @@ export const Form = () => {
   const handleChange = (e) => {
     let { value, name } = e.target;
     // console.log(value, name);
-
-    if (name === "imageUrl") {
-      setImage(URL.createObjectURL(ref.current.files[0]));
-      // imagehosting();
-      value = image;
-    }
-
     setForm({
       ...form,
       [name]: value
@@ -36,7 +29,6 @@ export const Form = () => {
   };
 
   const imagehosting = () => {
-    console.log("enter");
     const data = new FormData();
     data.append("image", ref.current.files[0]);
 
@@ -49,8 +41,11 @@ export const Form = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        setImage(res.data.link);
-        console.log(res);
+        setForm( {
+          ...form,
+          "imageUrl": res.data.link
+        } );
+        setImage( URL.createObjectURL( ref.current.files[ 0 ] ) );
       })
       .catch((err) => {
         return err;
@@ -103,7 +98,8 @@ export const Form = () => {
       </div>
       <div>
         <span>Image: </span>
-        <input onChange={handleChange} ref={ref} name="imageUrl" type="file" />
+        <input onChange={ imagehosting } ref={ ref } name="imageUrl" type="file" />
+        <div style={{backgroundImage:`url(${image})`,width:"100px",height:"120px"}}></div>
       </div>
       <div>
         <input type="submit" value="Submit" />
