@@ -30,7 +30,7 @@ export const Form = () => {
       method: "POST",
       body: data,
       headers: {
-        Authorization: "Client-ID 094a367d4808459"
+        Authorization: `Client-ID ${process.env.CLIENT_ID}}`
       }
     })
       .then((res) => {
