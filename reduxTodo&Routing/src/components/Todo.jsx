@@ -9,6 +9,7 @@ import {
   getTodoSuccess
 } from "../store/action";
 import { TodoList } from "./TodoList";
+import { Total } from "./Total";
 
 export const Todo = () => {
   const [text, setText] = React.useState("");
@@ -54,11 +55,13 @@ export const Todo = () => {
   return (
     <div>
       <h1>Todo Application</h1>
+      <Total />
       <input
         type="text"
         onChange={(e) => setText(e.target.value)}
         placeholder="Enter Something to Add"
       />
+      <hr/>
       <button onClick={() => handleAdd()}>ADD TODO</button>
       {loading ? (
         <div>loading...</div>
