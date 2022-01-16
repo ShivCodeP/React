@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 export const Total = () => {
-  const todos = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state.app.todos);
 
   const total = todos.filter((item) => !item.status).length;
 

@@ -7,16 +7,16 @@ import {
   getTodoLoading,
   getTodoError,
   getTodoSuccess
-} from "../store/action";
+} from "../store/todos/action";
 import { TodoList } from "./TodoList";
 import { Total } from "./Total";
 
 export const Todo = () => {
   const [text, setText] = React.useState("");
   const { todos, loading, error } = useSelector((state) => ({
-    todos: state.todos,
-    loading: state.loading,
-    error: state.error
+    todos: state.app.todos,
+    loading: state.app.loading,
+    error: state.app.error
   }));
 
   const dispatch = useDispatch();
@@ -61,7 +61,6 @@ export const Todo = () => {
         onChange={(e) => setText(e.target.value)}
         placeholder="Enter Something to Add"
       />
-      <hr/>
       <button onClick={() => handleAdd()}>ADD TODO</button>
       {loading ? (
         <div>loading...</div>
